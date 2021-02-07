@@ -1,0 +1,7 @@
+.text-color {
+  background-color: red;
+  cursor: pointer;
+}
+.cursor-pointer:hover {
+  cursor: pointer;
+}

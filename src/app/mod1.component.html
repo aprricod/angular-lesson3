@@ -1,0 +1,70 @@
+<table width="100%" cellspacing="0" cellpadding="5">
+    <tr>
+      <td>
+        <img
+          src="../../assets/images.png"
+          alt="альтернативный текст"
+        />
+      </td>
+      <td>
+        <h5>Lifecycle Events</h5>
+        <ul>
+          <li *ngFor="let log of logs">
+            <code>{{ log }}</code>
+          </li>
+        </ul>
+  
+        <app-child
+          *ngIf="showChild"
+          [title]="name"
+          (log)="onLog($event)"
+        ></app-child>
+      </td>
+      <td>
+        <p>
+          Angular полностью управляет процессами происходящими в компоненте и над
+          ним: создание, рендеринг, связывание данных и удаление. Мы в свою
+          очередь можем вклиниться в процесс с помощью хуков/триггеров (lifecycle
+          hooks) для каждого из событий.
+        </p>
+  
+        <h5>Какие существуют хуки?</h5>
+        <ul>
+          <li><strong>ngOnChanges</strong> – при изменении входных значений</li>
+          <li>
+            <strong>ngOnInit</strong> – при инициализации компонента (один раз)
+          </li>
+          <li>
+            <strong>ngDoCheck</strong> – при вызове механизма обнаружения
+            изменения (change detection)
+          </li>
+          <li>
+            <strong>ngAfterContentInit</strong> – после вставки компонента в
+            страницу (один раз)
+          </li>
+          <li>
+            <strong>ngAfterContentChecked</strong> – один раз при инициализациии
+            контента и каждый раз при изменении входящих параметров
+          </li>
+          <li>
+            <strong>ngAfterViewInit</strong> – аналогичен ngAfterContentInit,
+            только для представления
+          </li>
+          <li>
+            <strong>ngAfterViewChecked</strong> – аналогичен
+            ngAfterContentChecked, только для представления
+          </li>
+          <li>
+            <strong>ngOnDestroy</strong> – перед тем, как Angular удалит компонент
+            со страницы
+          </li>
+        </ul>
+        <p>
+          Все хуки реализуются с помощью соотвествующего интерфейса в классе
+          компонента(либо директивы), соотвественно: OnChanges, OnInit, DoCheck,
+          AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked,
+          OnDestroy.
+        </p>
+      </td>
+    </tr>
+  </table>
