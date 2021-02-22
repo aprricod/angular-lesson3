@@ -1,32 +1,47 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import {
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  DoCheck,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'app-mod1',
   templateUrl: './mod1.component.html',
-  styleUrls: ['./mod1.component.css']
+  styleUrls: ['./mod1.component.css'],
 })
-  export class Mod1Component implements OnChanges,
-OnInit,
-DoCheck,
-AfterContentInit,
-AfterContentChecked,
-AfterViewInit,
-AfterViewChecked,
-OnDestroy
-{
-
-  logs:string[] = [];
-  name:string = '';
-  showChild:boolean = false;
+export class Mod1Component
+  implements
+    OnChanges,
+    OnInit,
+    DoCheck,
+    AfterContentInit,
+    AfterContentChecked,
+    AfterViewInit,
+    AfterViewChecked,
+    OnDestroy {
+  logs: string[] = [];
+  name: string = '';
+  showChild: boolean = false;
 
   constructor() {
-    this.name = "Natalia";
-    setTimeout(() => {this.showChildMethod()}, 5000);
-    setTimeout(() => {this.updateName()}, 10000);
-    setTimeout(() => {this.hideChild()}, 20000);
-    
+    this.name = 'Natalia';
+    setTimeout(() => {
+      this.showChildMethod();
+    }, 5000);
+    setTimeout(() => {
+      this.updateName();
+    }, 10000);
+    setTimeout(() => {
+      this.hideChild();
+    }, 20000);
   }
-  
 
   ngOnDestroy(): void {
     console.log('app-mod1', 'ngOnDestroy', this.logs);
@@ -53,7 +68,7 @@ OnDestroy
     console.log('app-mod1', 'ngOnChanges', this.logs, changes);
   }
 
-  onLog(data:string): void {
+  onLog(data: string): void {
     this.logs.push(data);
   }
 
@@ -63,13 +78,10 @@ OnDestroy
 
   hideChild(): void {
     this.showChild = false;
-    this.onLog("onDestroy")
+    this.onLog('onDestroy');
   }
 
   showChildMethod(): void {
     this.showChild = true;
-    
   }
-
-   
 }
