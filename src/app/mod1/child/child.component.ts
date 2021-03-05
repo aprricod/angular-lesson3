@@ -11,7 +11,6 @@ import {
   OnDestroy,
   OnInit,
   Output,
-  SimpleChange,
   SimpleChanges,
 } from '@angular/core';
 
